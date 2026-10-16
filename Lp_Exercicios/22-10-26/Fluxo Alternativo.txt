@@ -1,0 +1,32 @@
+Caso de Uso: Incluir Nota
+    Atores: Professores, Sistema
+    Fluxo Principal de Sucesso:
+        - Usuario adiciona o nome e nota do aluno
+        - Sistema valida se o nome foi digitado corretamente verificando se não são apenas numeros ou espaços em brancos, e 
+    se a nota é um numero inteiro de 0 a 10.
+
+Caso de Uso: Consultar Notas
+    Atores: Professores, Sistema
+    Fluxo Principal de Sucesso:
+        - Sistema informa ou mostra todos os registros com nome do aluno e nota 
+
+Caso de Uso: Excluir Nota
+    Atores: Professores, Sistema
+    Fluxo Principal de Sucesso:
+        - Sistema informa os alunos do registro
+        - Usuario insere o indice do aluno
+        - Sistema valida se o indice é válido e informa o indice correto da posição do aluno dentro do registro.
+        - Sistema valida e confirma a exclusão
+
+Caso de Uso: Alterar Nota
+    Atores: Professores, Sistema
+    Fluxo Principal de Sucesso:
+        - Sistema informa os alunos do registro
+        - Usuario insere o indice do aluno, o nome e a nota a ser alterada
+        - Sistema valida se o indice foi digitado corretamente, se o nome do aluno foi digitado corretamente e se
+        a nota é um numero inteiro de 0 a 10. Com todas as informações compativeis com o que está dentro do registro.
+        - Sistema confirma a alteração do aluno juntamente com a nota.
+
+
+
+
