@@ -39,30 +39,36 @@ class Sistema:
 
 
     def alterar_Aluno():
-        indice = -1
         
-        #Faz a verificação para ver se o usuário digitou o nome pela primeira vez
-        primeira_vez = False
-        continuar = True
-        
-        # Inputs
-        while indice < 0 or indice > len(nomes):
+        #Verifica se há alunos cadastrados antes de alterar
+        if len(nomes) == 0:
+            print("Não há nenhum aluno na cadastrado.")
             
-            # Verifica se o usuário digitou o nome pela primeira vez
-            if primeira_vez: 
-                print("Digite um nome válido!")
-                Sistema.continuar()
+        else:
+            indice = -1
             
-            indice = int(input("Digite o indice do aluno: "))
-            primeira_vez = True
+            #Faz a verificação para ver se o usuário digitou o nome pela primeira vez
+            primeira_vez = False
+            continuar = True
             
-        nome_aluno = Sistema.digitar_nome()
-        nota_aluno = Sistema.digitar_nota()
-        Sistema.continuar()
-        # Inserts
-        nomes[indice-1] = nome_aluno
-        notas[indice-1] = nota_aluno
-        print("NOME DOS ALUNOS ALTERADOS")
+            # Inputs
+            while indice < 1 or indice > len(nomes):
+                
+                # Verifica se o usuário digitou o nome pela primeira vez
+                if primeira_vez: 
+                    print("Digite um nome válido!")
+                    Sistema.continuar()
+                
+                indice = int(input("Digite o indice do aluno: "))
+                primeira_vez = True
+                
+            nome_aluno = Sistema.digitar_nome()
+            nota_aluno = Sistema.digitar_nota()
+            Sistema.continuar()
+            # Inserts
+            nomes[indice-1] = nome_aluno
+            notas[indice-1] = nota_aluno
+            print("NOME DOS ALUNOS ALTERADOS")
 
     def excluir_Aluno(indice):
         Sistema.continuar()
@@ -84,7 +90,7 @@ class Sistema:
             
             nome_aluno = input("Digite o nome do aluno: ")
             try{
-            nome_invalido = nome_aluno.strip == ""
+            nome_invalido = nome_aluno.strip() == ""
             if not nome_invalido:
                 print(f"O nome que você digitou foi: {nome_aluno}")
                 while escolha not in ["S", "N"]:
@@ -134,9 +140,10 @@ class Sistema:
                 case 4:
                     Sistema.listar_Alunos()
                     indice_Aluno = int(input("Informe o indice do aluno a ser excluido: "))
-                    if (indice_Aluno < len(nomes) and indice_Aluno < len(notas)) or (indice_Aluno > len(nomes) and indice_Aluno > len(notas)):
-                        print("Digite um indice valido!!!!")
-                    Sistema.excluir_Aluno(indice_Aluno)
+                    if indice_Aluno < 1 or indice_Aluno > len(nomes):
+                        print("Digite um índice válido!")
+                    else:
+                        Sistema.excluir_Aluno(indice_Aluno)
                 case 5:
                     print("Saindo do sistema...")
                     sleep(2)
